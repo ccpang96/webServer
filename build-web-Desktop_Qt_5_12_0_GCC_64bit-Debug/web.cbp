@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="web"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\http\;CMake Files\log\;CMake Files\CGImysql\;CMake Files\timer\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="web">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/web" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/mysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 web"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="web/fast">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/web" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/mysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 web/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="http_function">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/libhttp_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 http_function"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="http_function/fast">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/libhttp_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 http_function/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/http/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="log_function">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/liblog_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 log_function"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="log_function/fast">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/liblog_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 log_function/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cgimysql_function">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/libcgimysql_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 cgimysql_function"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cgimysql_function/fast">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/libcgimysql_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 cgimysql_function/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="timer_function">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/libtimer_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 timer_function"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="timer_function/fast">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/libtimer_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 timer_function/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ccpang/web/CGImysql/sql_connection_pool.cpp">
+			<Option target="cgimysql_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/CGImysql/sql_connection_pool.h">
+			<Option target="cgimysql_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/config.cpp">
+			<Option target="web"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/config.h">
+			<Option target="web"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/http/http_conn.cpp">
+			<Option target="http_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/http/http_conn.h">
+			<Option target="http_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/log/log.cpp">
+			<Option target="log_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/log/log.h">
+			<Option target="log_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/main.cpp">
+			<Option target="web"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/timer/lst_timer.cpp">
+			<Option target="timer_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/timer/lst_timer.h">
+			<Option target="timer_function"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/webserver.cpp">
+			<Option target="web"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/webserver.h">
+			<Option target="web"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/http/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\http\"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/log/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\log\"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/CGImysql/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\CGImysql\"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/timer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\timer\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
