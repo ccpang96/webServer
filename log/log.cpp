@@ -158,6 +158,8 @@ void Log::write_log(int level, const char *format, ...)
     va_end(valst);
 }
 
+
+
 void Log::flush(void)
 {
     m_mutex.lock();

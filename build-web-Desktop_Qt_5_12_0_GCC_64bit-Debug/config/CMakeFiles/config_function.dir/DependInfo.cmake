@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ccpang/web/timer/lst_timer.cpp" "/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/CMakeFiles/timer_function.dir/lst_timer.cpp.o"
+  "/home/ccpang/web/config/config.cpp" "/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/CMakeFiles/config_function.dir/config.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

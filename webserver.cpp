@@ -3,7 +3,7 @@
 WebServer::WebServer()
 {
     //http_conn类对象
-    users = new http_conn[MAX_FD];
+    users = new http_conn[MAX_FD]; //MAX_FD是65536
 
     /*
     //root文件夹路径
@@ -21,7 +21,7 @@ WebServer::WebServer()
     m_root = (char*)malloc(strlen(root)+1);
     strcpy(m_root,root);
     //定时器
-    users_timer = new client_data[MAX_FD];
+    users_timer = new client_data[MAX_FD];  //65536
 }
 
 WebServer::~WebServer()
@@ -101,6 +101,7 @@ void WebServer::sql_pool()
 
     m_connPool = connection_pool::GetInstance();
 
+    //这个地方创建了8个数据库连接
     m_connPool->init("122.112.162.222", m_user, m_passWord, m_databaseName, 3306, m_sql_num, m_close_log);
 
     //初始化数据库读取表
@@ -142,6 +143,7 @@ void WebServer::eventListen()
     int flag = 1;
     setsockopt(m_listenfd, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag));      //允许重用本地地址和端口
     ret = bind(m_listenfd, (struct sockaddr *)&address, sizeof(address));
+    cout << "ret的值: " << ret<< endl;
     assert(ret >= 0);
     ret = listen(m_listenfd, 5);
 
@@ -220,7 +222,7 @@ bool WebServer::dealclinetdata()
 {
     struct sockaddr_in client_address;
     socklen_t client_addrlength = sizeof(client_address);
-    if (0 == m_LISTENTrigmode)  //
+    if (0 == m_LISTENTrigmode)  //监听套接字使用LT模式
     {
         //
         cout << "开始处理三次握手完成的连接" <<endl;

@@ -26,7 +26,7 @@ Config::Config(){
     thread_num = 8;
 
     //关闭日志,默认不关闭
-    close_log = 1;
+    close_log = 0;
 
     //并发模型,默认是proactor
     actor_model = 0;

@@ -57,13 +57,13 @@ void connection_pool::init(string url, string User, string PassWord, string DBNa
             exit(1);
         }
 
-        connList.push_back(con);
-        ++m_FreeConn;
+        connList.push_back(con);  //连接池
+        ++m_FreeConn;           //空闲的数据库连接
     }
 
-    reserve = sem(m_FreeConn);
+    reserve = sem(m_FreeConn);      //用一个信号量来保护数据库连接池
 
-    m_MaxConn = m_FreeConn;
+    m_MaxConn = m_FreeConn;     //数据库连接池的最大连接数
 }
 
 
@@ -82,8 +82,8 @@ MYSQL *connection_pool::GetConnection()
     con = connList.front();
     connList.pop_front();
 
-    --m_FreeConn;
-    ++m_CurConn;
+    --m_FreeConn;       //空闲数据库连接减一
+    ++m_CurConn;        //正在使用的数据库连接+1
 
     lock.unlock();
     return con;
@@ -142,7 +142,7 @@ connection_pool::~connection_pool()
 
 //产生MYSQL  连接池
 connectionRAII::connectionRAII(MYSQL **SQL, connection_pool *connPool){
-    *SQL = connPool->GetConnection();
+    *SQL = connPool->GetConnection();   //从数据库连接池中获取了一个连接
 
     conRAII = *SQL;
     poolRAII = connPool;

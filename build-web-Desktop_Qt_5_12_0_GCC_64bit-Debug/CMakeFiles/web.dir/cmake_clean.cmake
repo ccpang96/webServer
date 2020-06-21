@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/web.dir/main.cpp.o"
   "CMakeFiles/web.dir/webserver.cpp.o"
-  "CMakeFiles/web.dir/config.cpp.o"
   "web.pdb"
   "web"
 )

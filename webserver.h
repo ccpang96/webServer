@@ -15,6 +15,7 @@
 #include "./threadpool/threadpool.h"
 #include "./http/http_conn.h"
 
+
 const int MAX_FD = 65536;           //最大文件描述符
 const int MAX_EVENT_NUMBER = 10000; //最大事件数
 const int TIMESLOT = 5;             //最小超时单位
@@ -67,7 +68,7 @@ public:
     int m_thread_num;
 
     //epoll_event相关
-    epoll_event events[MAX_EVENT_NUMBER];
+    epoll_event events[MAX_EVENT_NUMBER];  //epoll_event是一种数据结构
 
     int m_listenfd;
     int m_OPT_LINGER;

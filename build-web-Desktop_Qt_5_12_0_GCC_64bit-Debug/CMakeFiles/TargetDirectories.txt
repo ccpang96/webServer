@@ -13,3 +13,6 @@
 /home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/CMakeFiles/rebuild_cache.dir
 /home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/CMakeFiles/timer_function.dir
 /home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/CMakeFiles/edit_cache.dir
+/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/CMakeFiles/rebuild_cache.dir
+/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/CMakeFiles/config_function.dir
+/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/CMakeFiles/edit_cache.dir

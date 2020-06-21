@@ -43,6 +43,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/log/cmake_install.cmake")
   include("/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/CGImysql/cmake_install.cmake")
   include("/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/cmake_install.cmake")
+  include("/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/cmake_install.cmake")
 
 endif()
 

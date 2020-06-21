@@ -5,7 +5,7 @@
 		<Option title="web"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\http\;CMake Files\log\;CMake Files\CGImysql\;CMake Files\timer\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\http\;CMake Files\log\;CMake Files\CGImysql\;CMake Files\timer\;CMake Files\config\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug"/>
@@ -40,6 +40,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/mysql"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
@@ -70,6 +71,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/mysql"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
@@ -110,6 +112,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -139,6 +142,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -168,6 +172,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -197,6 +202,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -226,6 +232,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -255,6 +262,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -284,6 +292,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -313,6 +322,7 @@
 					<Add directory="/home/ccpang/web/threadpool"/>
 					<Add directory="/home/ccpang/web/timer"/>
 					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -329,6 +339,66 @@
 					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/timer/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="config_function">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/libconfig_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 config_function"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="config_function/fast">
+				<Option output="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/libconfig_function.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ccpang/web/http"/>
+					<Add directory="/home/ccpang/web/log"/>
+					<Add directory="/home/ccpang/web/lock"/>
+					<Add directory="/home/ccpang/web/threadpool"/>
+					<Add directory="/home/ccpang/web/timer"/>
+					<Add directory="/home/ccpang/web/CGImysql"/>
+					<Add directory="/home/ccpang/web/config"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 config_function/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ccpang/web/build-web-Desktop_Qt_5_12_0_GCC_64bit-Debug/config/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/ccpang/web/CGImysql/sql_connection_pool.cpp">
 			<Option target="cgimysql_function"/>
@@ -336,11 +406,11 @@
 		<Unit filename="/home/ccpang/web/CGImysql/sql_connection_pool.h">
 			<Option target="cgimysql_function"/>
 		</Unit>
-		<Unit filename="/home/ccpang/web/config.cpp">
-			<Option target="web"/>
+		<Unit filename="/home/ccpang/web/config/config.cpp">
+			<Option target="config_function"/>
 		</Unit>
-		<Unit filename="/home/ccpang/web/config.h">
-			<Option target="web"/>
+		<Unit filename="/home/ccpang/web/config/config.h">
+			<Option target="config_function"/>
 		</Unit>
 		<Unit filename="/home/ccpang/web/http/http_conn.cpp">
 			<Option target="http_function"/>
@@ -383,6 +453,9 @@
 		</Unit>
 		<Unit filename="/home/ccpang/web/timer/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\timer\"/>
+		</Unit>
+		<Unit filename="/home/ccpang/web/config/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\config\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

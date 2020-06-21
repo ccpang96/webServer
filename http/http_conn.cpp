@@ -11,7 +11,7 @@ const char *error_403_title = "Forbidden";
 const char *error_403_form = "You do not have permission to get file form this server.\n";
 const char *error_404_title = "Not Found";
 const char *error_404_form = "The requested file was not found on this server.\n";
-const char *error_500_title = "Internal Error";
+const char *error_500_title = "Internal Error";     //服务器内部错误
 const char *error_500_form = "There was an unusual problem serving the request file.\n";
 
 locker m_lock;
@@ -346,6 +346,7 @@ http_conn::HTTP_CODE http_conn::parse_request_line(char *text)
 //解析http请求的一个头部信息
 http_conn::HTTP_CODE http_conn::parse_headers(char *text)
 {
+    printf("%s\n",text);
     if (text[0] == '\0')
     {
         if (m_content_length != 0)
@@ -356,6 +357,7 @@ http_conn::HTTP_CODE http_conn::parse_headers(char *text)
         return GET_REQUEST;
     }
 
+    //匹配连接方式:长连接还是短连接
     else if (strncasecmp(text, "Connection:", 11) == 0)
     {
         text += 11;
@@ -365,11 +367,14 @@ http_conn::HTTP_CODE http_conn::parse_headers(char *text)
             m_linger = true;   //长连接
         }
     }
+    //匹配
     else if (strncasecmp(text, "Content-length:", 15) == 0)
     {
         text += 15;
         text += strspn(text, " \t");
+
         m_content_length = atol(text);
+        cout << "content_length的长度是: "  << m_content_length <<endl;
     }
     else if (strncasecmp(text, "Host:", 5) == 0)
     {
@@ -385,8 +390,10 @@ http_conn::HTTP_CODE http_conn::parse_headers(char *text)
 }
 
 //判断http请求是否被完整读入
+//服务器端解析浏览器的请求报文,当解析为POST请求时,cgi标志设置为1,并将请求报文的消息体赋给m_string,进而提取出用户名和密码
 http_conn::HTTP_CODE http_conn::parse_content(char *text)
 {
+    //判断buffer中是否读取了消息体
     if (m_read_idx >= (m_content_length + m_checked_idx))
     {
         text[m_content_length] = '\0';
@@ -418,6 +425,7 @@ http_conn::HTTP_CODE http_conn::process_read()
 
         cout << "读取一行数据" <<endl;
         LOG_INFO("%s", text);
+
         switch (m_check_state)
         {
         case CHECK_STATE_REQUESTLINE:  //状态机:处理完请求行,转向请求头部
@@ -447,14 +455,14 @@ http_conn::HTTP_CODE http_conn::process_read()
             ret = parse_content(text);
             if (ret == GET_REQUEST)
                 return do_request();
-            line_status = LINE_OPEN;
+            line_status = LINE_OPEN;            //在完成消息体的解析之后,让Line_status修改为LINE_OPEN,以跳出循环
             break;
         }
         default:
             return INTERNAL_ERROR;
         }
     }
-    return NO_REQUEST;
+    return NO_REQUEST;      //继续请求数据
 }
 
 
@@ -468,7 +476,7 @@ http_conn::HTTP_CODE http_conn::do_request()
     printf("m_url:%s\n", m_url);
     const char *p = strrchr(m_url, '/'); //在m_url中查找字符'/'首次出现的位置
 
-    //处理cgi
+    //处理cgi post请求
     if (cgi == 1 && (*(p + 1) == '2' || *(p + 1) == '3'))
     {
 
@@ -608,6 +616,8 @@ void http_conn::unmap()
         m_file_address = 0;
     }
 }
+
+
 bool http_conn::write()
 {
     int temp = 0;
@@ -667,6 +677,7 @@ bool http_conn::write()
 }
 bool http_conn::add_response(const char *format, ...)
 {
+    //写入的数据大于写缓冲区的数据`
     if (m_write_idx >= WRITE_BUFFER_SIZE)
         return false;
     va_list arg_list;
@@ -720,7 +731,7 @@ bool http_conn::process_write(HTTP_CODE ret)
     cout << "向http返回数据" << endl;
     switch (ret)
     {
-    case INTERNAL_ERROR:
+    case INTERNAL_ERROR:    //服务器内部错误
     {
         add_status_line(500, error_500_title);
         add_headers(strlen(error_500_form));
@@ -781,7 +792,7 @@ void http_conn::process()
     cout << "处理http请求" <<endl;
     HTTP_CODE read_ret = process_read();
 
-    if (read_ret == NO_REQUEST)
+    if (read_ret == NO_REQUEST) //如果需要继续接收请求
     {
         modfd(m_epollfd, m_sockfd, EPOLLIN, m_TRIGMode);    //将事件重置为EPOLLONESHOT
         return;

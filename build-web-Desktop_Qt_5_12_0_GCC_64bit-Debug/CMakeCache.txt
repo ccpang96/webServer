@@ -206,6 +206,9 @@ QT_QMAKE_EXECUTABLE:STRING=/home/ccpang/Qt5.12.0/5.12.0/gcc_64/bin/qmake
 cgimysql_function_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
+config_function_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
 http_function_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
@@ -335,7 +338,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

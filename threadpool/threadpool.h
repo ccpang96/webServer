@@ -107,9 +107,9 @@ template <typename T>
 void threadpool<T>::run()
 {
     cout << "执行线程池的操作" <<endl;
-    while (true)
+    while (true) //子线程在此处循环执行
     {
-        m_queuestat.wait(); //V操作
+        m_queuestat.wait(); //V操作  如果队列中没有任务,就阻塞在这里
         m_queuelocker.lock();
         if (m_workqueue.empty())
         {
