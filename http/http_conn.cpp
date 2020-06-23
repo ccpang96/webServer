@@ -336,7 +336,7 @@ http_conn::HTTP_CODE http_conn::parse_request_line(char *text)
     //处理请求资源,请求资源的首个字母是/
     //当url为/时，显示判断界面
     if (strlen(m_url) == 1)
-        strcat(m_url, "judge.html"); //将字符串"judge.html"连接到m_url后面
+        strcat(m_url, "index.html"); //将字符串"judge.html"连接到m_url后面
     m_check_state = CHECK_STATE_HEADER;
     return NO_REQUEST;      //请求行接收完毕后,还要接收请求头部
 }
@@ -476,7 +476,8 @@ http_conn::HTTP_CODE http_conn::do_request()
     printf("m_url:%s\n", m_url);
     const char *p = strrchr(m_url, '/'); //在m_url中查找字符'/'首次出现的位置
 
-    //处理cgi post请求
+    //处理cgi post请求: 2是2CGISQL.cgi,要登录
+    //3是3CGISQL,要注册
     if (cgi == 1 && (*(p + 1) == '2' || *(p + 1) == '3'))
     {
 
@@ -490,7 +491,7 @@ http_conn::HTTP_CODE http_conn::do_request()
         free(m_url_real);
 
         //将用户名和密码提取出来
-        //user=123&passwd=123
+
         char name[100], password[100];
         int i;
         for (i = 5; m_string[i] != '&'; ++i)
@@ -540,6 +541,11 @@ http_conn::HTTP_CODE http_conn::do_request()
         }
     }
 
+
+
+
+
+
     if (*(p + 1) == '0')
     {
         char *m_url_real = (char *)malloc(sizeof(char) * 200);
@@ -548,6 +554,7 @@ http_conn::HTTP_CODE http_conn::do_request()
 
         free(m_url_real);
     }
+
     else if (*(p + 1) == '1')
     {
         char *m_url_real = (char *)malloc(sizeof(char) * 200);

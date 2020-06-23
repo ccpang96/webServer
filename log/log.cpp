@@ -22,6 +22,8 @@ Log::~Log()
 
 
 //异步需要设置阻塞队列的长度，同步不需要设置
+//close_log为是否关闭日志
+//log_buf_size:是2000字节
 bool Log::init(const char *file_name, int close_log, int log_buf_size, int split_lines, int max_queue_size)
 {
     //如果设置了max_queue_size,则设置为异步
@@ -34,14 +36,14 @@ bool Log::init(const char *file_name, int close_log, int log_buf_size, int split
         pthread_create(&tid, NULL, flush_log_thread, NULL);
     }
 
-    m_close_log = close_log;
-    m_log_buf_size = log_buf_size;
+    m_close_log = close_log;   //是否关闭日志
+    m_log_buf_size = log_buf_size;  //buf的大小
     m_buf = new char[m_log_buf_size];
     memset(m_buf, '\0', m_log_buf_size);
-    m_split_lines = split_lines;
+    m_split_lines = split_lines;  //日志的最大行数
 
     time_t t = time(NULL);
-    struct tm *sys_tm = localtime(&t);
+    struct tm *sys_tm = localtime(&t); //当前时间
     struct tm my_tm = *sys_tm;
 
 
@@ -61,7 +63,7 @@ bool Log::init(const char *file_name, int close_log, int log_buf_size, int split
 
     m_today = my_tm.tm_mday;
 
-    m_fp = fopen(log_full_name, "a");
+    m_fp = fopen(log_full_name, "a"); //用追加模式打开
     if (m_fp == NULL)
     {
         return false;
@@ -99,7 +101,7 @@ void Log::write_log(int level, const char *format, ...)
     }
     //写入一个log，对m_count++, m_split_lines最大行数
     m_mutex.lock();
-    m_count++;
+    m_count++; //单例模式 m_count只有一个
 
     if (m_today != my_tm.tm_mday || m_count % m_split_lines == 0) //everyday log
     {

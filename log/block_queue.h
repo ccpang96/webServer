@@ -150,7 +150,7 @@ public:
     {
 
         m_mutex.lock();
-        while (m_size <= 0)
+        while (m_size <= 0)  //队列为空
         {
 
             if (!m_cond.wait(m_mutex.get()))

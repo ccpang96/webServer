@@ -3,8 +3,50 @@
 WebServer
 
 
-- 使用 **线程池 + 非阻塞socket + epoll(ET和LT均实现) + 事件处理(Reactor和Proactor均实现)** 的并发模型
-- 使用**状态机**解析HTTP请求报文，支持解析**GET和POST**请求
-- 访问服务器数据库实现web端用户**注册、登录**功能，可以请求服务器**图片和视频文件**
-- 实现**同步/异步日志系统**，记录服务器运行状态
-- 经Webbench压力测试可以实现**上万的并发连接**数据交换
+- 并发模型是Proactor/Reactor + 线程池 + 非阻塞I/O，经Webbench支持上千并发连接.
+- 使用状态机解析HTTP请求,支持解析GET和POST请求,支持优雅关闭连接.
+- 使用基于最小堆的定时器关闭非活动连接.
+- 使用单例模式实现同步日志系统/异步日志系统，支持日志按天分类，超行分类。
+- 使用单例模式实现数据库连接池，通过CGI和同步线程分别完成web端的注册和登陆校验，
+
+
+
+# 环境配置: 使用QT内的gdb调试非常方便
+```
+cmake_minimum_required(VERSION 2.8)
+
+project(web)
+
+# 添加头文件路径
+include_directories(
+    "${PROJECT_SOURCE_DIR}/http"
+    "${PROJECT_SOURCE_DIR}/log"
+    "${PROJECT_SOURCE_DIR}/lock"
+    "${PROJECT_SOURCE_DIR}/threadpool"
+    "${PROJECT_SOURCE_DIR}/timer"
+    "${PROJECT_SOURCE_DIR}/CGImysql"
+    "${PROJECT_SOURCE_DIR}/config"
+
+)
+
+# 添加子目录
+add_subdirectory(http)
+add_subdirectory(log)
+add_subdirectory(CGImysql)
+add_subdirectory(timer)
+add_subdirectory(config)
+
+# 添加mysql库 pthread库
+find_package (Threads)
+find_package(PkgConfig)
+pkg_check_modules(MySQL REQUIRED mysqlclient>=5.7)
+
+add_executable(${PROJECT_NAME} "main.cpp" "webserver.cpp")
+target_link_libraries(${PROJECT_NAME} http_function log_function cgimysql_function  config_function  timer_function)
+target_link_libraries (${PROJECT_NAME}  ${CMAKE_THREAD_LIBS_INIT})
+target_include_directories(${PROJECT_NAME} PUBLIC ${MySQL_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${MySQL_LIBRARIES})
+
+```
+
+
