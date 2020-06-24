@@ -3,7 +3,7 @@
 WebServer
 
 
-- 并发模型是Proactor/Reactor + 线程池 + 非阻塞I/O，经Webbench支持上千并发连接.
+- 并发模型是Proactor/Reactor + 线程池 + 非阻塞I/O，经Webbench测试支持上千并发连接.
 - 使用状态机解析HTTP请求,支持解析GET和POST请求,支持优雅关闭连接.
 - 使用基于最小堆的定时器关闭非活动连接.
 - 使用单例模式实现同步日志系统/异步日志系统，支持日志按天分类，超行分类。
@@ -11,7 +11,7 @@ WebServer
 
 
 
-# 环境配置: 使用QT内的gdb调试非常方便
+环境配置: 使用QT内的gdb调试非常方便
 ```
 cmake_minimum_required(VERSION 2.8)
 

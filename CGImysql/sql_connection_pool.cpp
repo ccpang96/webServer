@@ -39,20 +39,20 @@ void connection_pool::init(string url, string User, string PassWord, string DBNa
 
         if (con == NULL)
         {
-            cout <<"MySQL Error" <<endl;
+            //cout <<"MySQL Error" <<endl;
             LOG_ERROR("MySQL Error");
             exit(1);
         }
 
        // mysql_options(&mysql,MYSQL_OPT_CONNECT_TIMEOUT,(char*)&time_out)
         //mysql_real_connect()尝试与运行在主机上的MySQL数据库引擎建立连接
-        cout <<"数据库开始阻塞"<<endl;
+        //cout <<"数据库开始阻塞"<<endl;
         con = mysql_real_connect(con, url.c_str(), User.c_str(), PassWord.c_str(), DBName.c_str(), Port, NULL, 0);
 
-        cout <<"数据库阻塞完成"<<endl;
+        //cout <<"数据库阻塞完成"<<endl;
          if(con == nullptr)
         {
-            cout <<"MySQL Error" <<endl;
+            //cout <<"MySQL Error" <<endl;
             LOG_ERROR("MySQL Error");
             exit(1);
         }

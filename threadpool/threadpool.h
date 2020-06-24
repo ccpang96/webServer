@@ -106,7 +106,7 @@ void *threadpool<T>::worker(void *arg)
 template <typename T>
 void threadpool<T>::run()
 {
-    cout << "执行线程池的操作" <<endl;
+    //cout << "执行线程池的操作" <<endl;
     while (true) //子线程在此处循环执行
     {
         m_queuestat.wait(); //V操作  如果队列中没有任务,就阻塞在这里
@@ -119,7 +119,7 @@ void threadpool<T>::run()
         T *request = m_workqueue.front();
         m_workqueue.pop_front();
         m_queuelocker.unlock();
-        cout << "从线程池中取出一个请求" <<endl;
+        //cout << "从线程池中取出一个请求" <<endl;
 
         if (!request)
             continue;
@@ -161,7 +161,7 @@ void threadpool<T>::run()
         else
         {
             connectionRAII mysqlcon(&request->mysql, m_connPool);
-            cout << "创建mysql连接池成功 " <<endl;
+            //cout << "创建mysql连接池成功 " <<endl;
             request->process();
         }
     }

@@ -17,7 +17,7 @@ WebServer::WebServer()
     strcat(m_root, root); //连接m_root和root
     */
 
-    char root[29] = "/home/ccpang/web/root/resume";
+    char root[29] = "/home/ccpang/web/root/";
     m_root = (char*)malloc(strlen(root)+1);
     strcpy(m_root,root);
     //定时器
@@ -100,7 +100,7 @@ void WebServer::log_write()
 void WebServer::sql_pool()
 {
     //初始化数据库连接池
-    cout << "初始化数据库连接池" <<endl;
+    //cout << "初始化数据库连接池" <<endl;
 
     m_connPool = connection_pool::GetInstance();
 
@@ -146,12 +146,12 @@ void WebServer::eventListen()
     int flag = 1;
     setsockopt(m_listenfd, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag));      //允许重用本地地址和端口
     ret = bind(m_listenfd, (struct sockaddr *)&address, sizeof(address));
-    cout << "ret的值: " << ret<< endl;
+    //cout << "ret的值: " << ret<< endl;
     assert(ret >= 0);
     ret = listen(m_listenfd, 5);
 
     assert(ret >= 0);
-    cout << "监听端口:"<< m_port << endl;
+    //cout << "监听端口:"<< m_port << endl;
 
     //工具类,信号和描述符基础操作
     Utils::u_pipefd = m_pipefd;
@@ -228,9 +228,9 @@ bool WebServer::dealclinetdata()
     if (0 == m_LISTENTrigmode)  //监听套接字使用LT模式
     {
         //
-        cout << "开始处理三次握手完成的连接" <<endl;
+        //cout << "开始处理三次握手完成的连接" <<endl;
         int connfd = accept(m_listenfd, (struct sockaddr *)&client_address, &client_addrlength);
-        cout << "accept调用有返回" <<endl;
+        //cout << "accept调用有返回" <<endl;
         if (connfd < 0)
         {
             LOG_ERROR("%s:errno is:%d", "accept error", errno);
@@ -346,7 +346,7 @@ void WebServer::dealwithread(int sockfd)
 
 
             //若监测到读事件，将该事件放入请求队列
-            cout << "开一个工作线程去处理已连接套接字上的数据"<<endl;
+            //cout << "开一个工作线程去处理已连接套接字上的数据"<<endl;
             m_pool->append_p(users + sockfd);
 
 
@@ -357,7 +357,7 @@ void WebServer::dealwithread(int sockfd)
         }
         else
         {
-            cout << "将已连接的套接字从epoll中删除"<<endl;
+            //cout << "将已连接的套接字从epoll中删除"<<endl;
             deal_timer(timer, sockfd);
         }
     }
@@ -431,7 +431,7 @@ void WebServer::eventLoop()
             //处理新到的客户连接
             if (sockfd == m_listenfd)
             {
-                cout << "处理客户上的请求:" <<endl;
+                //cout << "处理客户上的请求:" <<endl;
                 bool flag = dealclinetdata(); //一定要把这个dealclinetdata改为deaclinerequest()函数
                 if (false == flag)
                     continue;
@@ -440,14 +440,14 @@ void WebServer::eventLoop()
             else if (events[i].events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR))
             {
                 //服务器端关闭连接，移除对应的定时器
-                cout << "EPOLLRDHUP:对端正常关闭,EPOLLHUP:文件描述符挂断,本端server出错 EPOLLERR:本端server出错,文件描述符发生错误"<<endl;
+                //cout << "EPOLLRDHUP:对端正常关闭,EPOLLHUP:文件描述符挂断,本端server出错 EPOLLERR:本端server出错,文件描述符发生错误"<<endl;
                 util_timer *timer = users_timer[sockfd].timer;
                 deal_timer(timer, sockfd);
             }
             //处理信号:写管道上有数据来,有普通数据可读
             else if ((sockfd == m_pipefd[0]) && (events[i].events & EPOLLIN))
             {
-                cout << "信号中有数据可读" <<endl;
+                //cout << "信号中有数据可读" <<endl;
                 bool flag = dealwithsignal(timeout, stop_server);
                 if (false == flag)
                     LOG_ERROR("%s", "dealclientdata failure");
@@ -455,20 +455,20 @@ void WebServer::eventLoop()
             //处理客户连接上接收到的数据
             else if (events[i].events & EPOLLIN)
             {
-                cout << "读客户端的数据"<<endl;
+                //cout << "读客户端的数据"<<endl;
                 dealwithread(sockfd);
             }
             //向客户上写数据
             else if (events[i].events & EPOLLOUT)
             {
-                cout << "向客户端写数据"<<endl;
+                //cout << "向客户端写数据"<<endl;
                 dealwithwrite(sockfd);
             }
         }
 
         if (timeout)
         {
-            cout << "定时器超时"<<endl;
+            //cout << "定时器超时"<<endl;
             utils.timer_handler();
 
             LOG_INFO("%s", "timer tick");
