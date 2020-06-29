@@ -20,7 +20,7 @@ Config::Config(){
     CONNTrigmode = 0;
 
     //优雅关闭链接，默认不使用
-    OPT_LINGER = 0;
+    OPT_LINGER = 1;
 
     //数据库连接池数量,默认8
     sql_num = 8;
@@ -29,10 +29,10 @@ Config::Config(){
     thread_num = 8;
 
     //关闭日志,默认不关闭
-    close_log = 1;
+    close_log = 0;
 
     //并发模型,默认是proactor
-    actor_model = 0;
+    actor_model = 1;
 }
 
 void Config::parse_arg(int argc, char*argv[]){

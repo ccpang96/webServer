@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     //监听
     server.eventListen();
-    cout << "初始化成功,服务器开始工作"<<endl;
+
 
 
     //运行

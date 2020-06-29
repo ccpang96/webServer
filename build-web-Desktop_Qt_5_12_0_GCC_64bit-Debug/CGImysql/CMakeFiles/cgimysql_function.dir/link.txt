@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcgimysql_function.a  CMakeFiles/cgimysql_function.dir/sql_connection_pool.cpp.o
-/usr/bin/ranlib libcgimysql_function.a

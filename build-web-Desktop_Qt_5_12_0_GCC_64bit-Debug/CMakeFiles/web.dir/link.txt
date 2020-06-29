@@ -1,1 +1,0 @@
-/usr/bin/g++  -g  -rdynamic CMakeFiles/web.dir/main.cpp.o CMakeFiles/web.dir/webserver.cpp.o  -o web http/libhttp_function.a log/liblog_function.a CGImysql/libcgimysql_function.a config/libconfig_function.a timer/libtimer_function.a -lpthread -lmysqlclient 

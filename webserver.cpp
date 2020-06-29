@@ -89,11 +89,12 @@ void WebServer::log_write()
         if (1 == m_log_write)
             Log::get_instance()->init("./ServerLog", m_close_log, 2000, 80000, 800);  //异步队列中的值为800
         else{
-              LOG_INFO("log line is 2");
+
               Log::get_instance()->init("./ServerLog", m_close_log, 2000, 80000, 0);  //同步队列中的值就为0
         }
 
     }
+
 }
 
 //数据库连接池初始化
@@ -110,6 +111,8 @@ void WebServer::sql_pool()
     cout << "数据库连接成功"<<endl;
     //初始化数据库读取表
     users->initmysql_result(m_connPool);
+
+
 }
 
 void WebServer::thread_pool()
@@ -120,39 +123,58 @@ void WebServer::thread_pool()
 
 void WebServer::eventListen()
 {
-    //网络编程基础步骤
-    m_listenfd = socket(PF_INET, SOCK_STREAM, 0);
-    assert(m_listenfd >= 0);
-
-    //优雅关闭连接
-    //如果选择此选项, close或 shutdown将等到所有套接字里排队的消息成功发送或到达延迟时间后>才会返回. 否则, 调用将立即返回。
-    if (0 == m_OPT_LINGER)
-    {
-        struct linger tmp = {0, 1};
-        setsockopt(m_listenfd, SOL_SOCKET, SO_LINGER, &tmp, sizeof(tmp)); //第二个参数是通用套接字选项,第三个是延迟关闭连接
-    }
-    else if (1 == m_OPT_LINGER)
-    {
-        struct linger tmp = {1, 1};
-        setsockopt(m_listenfd, SOL_SOCKET, SO_LINGER, &tmp, sizeof(tmp));
-    }
-
     int ret = 0;
+
     struct sockaddr_in address;
     bzero(&address, sizeof(address));
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = htonl(INADDR_ANY);
     address.sin_port = htons(m_port);
 
+
+    //网络编程基础步骤
+    m_listenfd = socket(PF_INET, SOCK_STREAM, 0);
+    if(m_listenfd < 0) {
+        LOG_ERROR("Create socket error!", m_port);
+    }
+
+    //优雅关闭连接
+    struct linger tmp;
+    //如果选择此选项, close或 shutdown将等到所有套接字里排队的消息成功发送或到达延迟时间后>才会返回. 否则, 调用将立即返回。
+    if (0 == m_OPT_LINGER)
+         tmp = {0, 1};
+    else if (1 == m_OPT_LINGER)
+         tmp = {1, 1};
+    ret = setsockopt(m_listenfd, SOL_SOCKET, SO_LINGER, &tmp, sizeof(tmp)); //第二个参数是通用套接字选项,第三个是延迟关闭连接
+    if(ret < 0) {
+        close(m_listenfd);
+        LOG_ERROR("Init linger error!", m_port);
+    }
+
+    //允许重用本地地址和端口
     int flag = 1;
-    setsockopt(m_listenfd, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag));      //允许重用本地地址和端口
+    ret = setsockopt(m_listenfd, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag));      //允许重用本地地址和端口
+    if(ret == -1) {
+        LOG_ERROR("set socket setsockopt error !");
+        close(m_listenfd);
+    }
+
+
+
+
     ret = bind(m_listenfd, (struct sockaddr *)&address, sizeof(address));
     //cout << "ret的值: " << ret<< endl;
-    assert(ret >= 0);
+    if(ret < 0) {
+        LOG_ERROR("Bind Port:%d error!", m_port);
+        close(m_listenfd);
+    }
     ret = listen(m_listenfd, 5);
+    if(ret < 0) {
+        LOG_ERROR("Listen port:%d error!", m_port);
+        close(m_listenfd);
+    }
 
-    assert(ret >= 0);
-    //cout << "监听端口:"<< m_port << endl;
+    cout << "监听端口:"<< m_port << endl;
 
     //工具类,信号和描述符基础操作
     Utils::u_pipefd = m_pipefd;
@@ -164,6 +186,7 @@ void WebServer::eventListen()
     epoll_event events[MAX_EVENT_NUMBER];
     m_epollfd = epoll_create(5);
     assert(m_epollfd != -1);
+
     //使用IO复用处理监听套接字
     utils.addfd(m_epollfd, m_listenfd, false, m_LISTENTrigmode);
     http_conn::m_epollfd = m_epollfd;
@@ -178,7 +201,17 @@ void WebServer::eventListen()
     utils.addsig(SIGALRM, utils.sig_handler, false);
     utils.addsig(SIGTERM, utils.sig_handler, false);
 
+
+    LOG_INFO("Server port:%d", m_port);
     alarm(TIMESLOT);
+
+    LOG_INFO("Listen Mode: %s, OpenConn Mode: %s",
+            (m_LISTENTrigmode == 1 ? "ET": "LT"),
+            (m_CONNTrigmode == 1 ? "ET": "LT"));
+    LOG_INFO("Port:%d, OpenLinger: %s, IO Mode: %s",
+            m_port, m_OPT_LINGER? "true":"false", m_actormodel?"Reactor":"Proctor");
+    LOG_INFO("srcDir: %s", m_root);
+    LOG_INFO("SqlConnPool num: %d, ThreadPool num: %d", m_sql_num, m_thread_num);
 }
 
 
@@ -255,13 +288,13 @@ bool WebServer::dealclinetdata()
             int connfd = accept(m_listenfd, (struct sockaddr *)&client_address, &client_addrlength);
             if (connfd < 0)
             {
-                LOG_ERROR("%s:errno is:%d", "accept error", errno);
+                LOG_ERROR("Failed accept Client(%s:%d).", inet_ntoa(client_address.sin_addr), client_address.sin_port);
                 break;
             }
             if (http_conn::m_user_count >= MAX_FD)
             {
                 utils.show_error(connfd, "Internal server busy");
-                LOG_ERROR("%s", "Internal server busy");
+                LOG_ERROR("%s", "Clients is full");
                 break;
             }
             timer(connfd, client_address);
@@ -415,7 +448,8 @@ void WebServer::eventLoop()
 {
     bool timeout = false;
     bool stop_server = false;
-
+    if(m_close_log == 0) //不关闭日志
+        LOG_INFO("========== Server start ==========");
     while (!stop_server)
     {
         int number = epoll_wait(m_epollfd, events, MAX_EVENT_NUMBER, -1);
@@ -465,6 +499,8 @@ void WebServer::eventLoop()
                 //cout << "向客户端写数据"<<endl;
                 dealwithwrite(sockfd);
             }
+            else
+                LOG_ERROR("Unexpected event");
         }
 
         if (timeout)

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libhttp_function.a  CMakeFiles/http_function.dir/http_conn.cpp.o
-/usr/bin/ranlib libhttp_function.a
