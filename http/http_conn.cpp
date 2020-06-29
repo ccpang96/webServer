@@ -122,7 +122,7 @@ void http_conn::close_conn(bool real_close)
 {
     if (real_close && (m_sockfd != -1))
     {
-        printf("close %d\n", m_sockfd);  //关闭连接
+        //printf("close %d\n", m_sockfd);  //关闭连接
         removefd(m_epollfd, m_sockfd); //从内核时间表删除描述符
         m_sockfd = -1;
         m_user_count--;
@@ -346,7 +346,7 @@ http_conn::HTTP_CODE http_conn::parse_request_line(char *text)
 //解析http请求的一个头部信息
 http_conn::HTTP_CODE http_conn::parse_headers(char *text)
 {
-    printf("%s\n",text);
+    //printf("%s\n",text);
     if (text[0] == '\0')
     {
         if (m_content_length != 0)
@@ -399,7 +399,7 @@ http_conn::HTTP_CODE http_conn::parse_content(char *text)
         text[m_content_length] = '\0';
         //POST请求中最后为输入的用户名和密码
         m_string = text;
-        printf("%s\n",text);
+        //printf("%s\n",text);
         return GET_REQUEST;
     }
     return NO_REQUEST;
@@ -471,10 +471,10 @@ http_conn::HTTP_CODE http_conn::process_read()
 http_conn::HTTP_CODE http_conn::do_request()
 {
     strcpy(m_real_file, doc_root);  //将doc_root(存放文件的地址)放入其中
-    printf("%s\n",m_real_file);
+    //printf("%s\n",m_real_file);
 
     int len = strlen(doc_root);
-    printf("m_url:%s\n", m_url);
+    //printf("m_url:%s\n", m_url);
     const char *p = strrchr(m_url, '/'); //在m_url中查找字符'/'首次出现的位置
 
     //处理cgi post请求: 2是2CGISQL.cgi,要登录
@@ -614,7 +614,7 @@ http_conn::HTTP_CODE http_conn::do_request()
     else {
         //cout << "欢迎页面" <<endl;
          strncpy(m_real_file + len, m_url, FILENAME_LEN - len - 1); //把src所指向的字符串中以src地址开始的前n个字节复制到dest所指的数组中，并返回dest
-         printf("%s\n",m_real_file);
+         //printf("%s\n",m_real_file);
     }
 
 
@@ -740,7 +740,7 @@ bool http_conn::add_response(const char *format, ...)
      //清空可变参列表
     va_end(arg_list);
     //cout << "向用户发送数据:";
-    printf("%s\n",m_write_buf);
+    //printf("%s\n",m_write_buf);
     LOG_INFO("request:%s", m_write_buf);
 
     return true;

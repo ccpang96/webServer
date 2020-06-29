@@ -100,13 +100,14 @@ void WebServer::log_write()
 void WebServer::sql_pool()
 {
     //初始化数据库连接池
-    //cout << "初始化数据库连接池" <<endl;
+    cout << "初始化数据库连接池" <<endl;
 
     m_connPool = connection_pool::GetInstance();
 
     //这个地方创建了8个数据库连接
     m_connPool->init("122.112.162.222", m_user, m_passWord, m_databaseName, 3306, m_sql_num, m_close_log);
 
+    cout << "数据库连接成功"<<endl;
     //初始化数据库读取表
     users->initmysql_result(m_connPool);
 }

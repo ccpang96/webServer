@@ -11,7 +11,7 @@ Config::Config(){
     //1是Lt+ET
     //2是ET+LT
     //3是ET+ET
-    TRIGMode = 0;
+    TRIGMode = 3;
 
     //listenfd触发模式，默认LT
     LISTENTrigmode = 0;
